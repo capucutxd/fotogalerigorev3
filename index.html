@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+
+    <title>Resim Galerisi</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .galeri-foto {
+            width: 100%;
+            height: auto;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: transform 0.2s ease, border-radius 0.2s ease;
+        }
+
+            .galeri-foto:hover {
+                transform: scale(1.1);
+                border-radius: 0%;
+            }
+
+        .modal-dialog {
+            max-width: 90%;
+        }
+
+        .navbar {
+            background-color: blue !important;
+        }
+
+        .navbar-brand {
+            color: white !important;
+        }
+
+        .col-md-4 {
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Resim Galerisi </a>
+    </nav>
+
+    <div class="container my-4">
+        <div class="row">
+            <div class="col-md-4">
+                <img src="https://picsum.photos/id/688/600/400" class="galeri-foto" alt="Resim 1" data-toggle="modal" data-target="#imageModal" data-image="https://picsum.photos/id/688/600/400">
+            </div>
+            <div class="col-md-4">
+                <img src="https://picsum.photos/id/11/600/400" class="galeri-foto" alt="Resim 2" data-toggle="modal" data-target="#imageModal" data-image="https://picsum.photos/id/11/600/400">
+            </div>
+            <div class="col-md-4">
+                <img src="https://picsum.photos/id/432/600/400" class="galeri-foto" alt="Resim 3" data-toggle="modal" data-target="#imageModal" data-image="https://picsum.photos/id/432/600/400">
+            </div>
+            <div class="col-md-4">
+                <img src="https://picsum.photos/id/741/600/400" class="galeri-foto" alt="Resim 4" data-toggle="modal" data-target="#imageModal" data-image="https://picsum.photos/id/741/600/400">
+            </div>
+            <div class="col-md-4">
+                <img src="https://picsum.photos/id/124/600/400" class="galeri-foto" alt="Resim 5" data-toggle="modal" data-target="#imageModal" data-image="https://picsum.photos/id/124/600/400">
+            </div>
+            <div class="col-md-4">
+                <img src="https://picsum.photos/id/904/600/400" class="galeri-foto" alt="Resim 6" data-toggle="modal" data-target="#imageModal" data-image="https://picsum.photos/id/904/600/400">
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal fade" id="imageModal" tabindex="-1" role="dialog" aria-labelledby="imageModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="imageModalLabel">Büyütülmüþ Resim</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <img id="modalImage" src="" class="img-fluid" alt="Büyütülmüþ Resim">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Geri</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('.galeri-foto').click(function () {
+                var imageSrc = $(this).data('image');
+                $('#modalImage').attr('src', imageSrc);
+            });
+        });
+    </script>
+
+
+</body>
+</html>
